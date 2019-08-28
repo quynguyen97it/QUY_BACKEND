@@ -53,8 +53,6 @@ public class HocVien {
 	
 	private String TYPE;
 	
-	
-	
 	public String getMaTruonghoc() {
 		return truonghoc.getMATRUONG();
 	}	
@@ -103,8 +101,6 @@ public class HocVien {
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="MATRUONG",insertable=false, updatable=false)
     private TruongHoc truonghoc;
-	
-	
 	
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="MAKHOAHOC", insertable=false, updatable=false)
@@ -164,9 +160,6 @@ public class HocVien {
 	@Column(nullable = true)
 	@JsonManagedReference
     private List<GopY> gopy;
-	
-	
-	
 	
 
 	public String getMAHV() {

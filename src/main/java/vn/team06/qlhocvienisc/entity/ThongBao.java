@@ -27,7 +27,7 @@ public class ThongBao {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "NGUOIDANG")
-	CanBoGiangVien cbgv;
+	private NguoiQuanLy nql;
 	
 	@Column(nullable = true)
 	private Date NGAYDANG;
@@ -68,12 +68,12 @@ public class ThongBao {
 		NGAYDANG = nGAYDANG;
 	}
 
-	public CanBoGiangVien getCbgv() {
-		return cbgv;
+	public NguoiQuanLy getNql() {
+		return nql;
 	}
 
-	public void setCbgv(CanBoGiangVien cbgv) {
-		this.cbgv = cbgv;
+	public void setNql(NguoiQuanLy nql) {
+		this.nql = nql;
 	}
 
 	public KhoaHoc getKhoahoc() {
