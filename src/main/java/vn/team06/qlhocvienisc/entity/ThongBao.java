@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,14 +26,14 @@ public class ThongBao {
 	@Column(nullable = true)
 	private String NOIDUNG;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "NGUOIDANG")
-	private NguoiQuanLy nql;
-	
 	@Column(nullable = true)
 	private Date NGAYDANG;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "NGUOIDANG")
+	private NguoiQuanLy nql;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MAKHOAHOC")
 	KhoaHoc khoahoc;
 
