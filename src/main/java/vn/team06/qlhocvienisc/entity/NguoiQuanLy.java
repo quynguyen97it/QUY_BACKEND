@@ -1,11 +1,13 @@
 package vn.team06.qlhocvienisc.entity;
 import java.sql.Date;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -61,6 +63,9 @@ public class NguoiQuanLy {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="ACCOUNTTYPE")
 	LoaiTaiKhoan loaitaikhoan;
+	
+	@OneToMany(mappedBy = "nql")
+	private Set<ThongBao> listThongBao;
 	
 	public String getMANQL() {
 		return MANQL;

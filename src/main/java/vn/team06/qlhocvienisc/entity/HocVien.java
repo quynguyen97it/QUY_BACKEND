@@ -102,6 +102,7 @@ public class HocVien {
     @JoinColumn(name="MATRUONG",insertable=false, updatable=false)
     private TruongHoc truonghoc;
 	
+	
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="MAKHOAHOC", insertable=false, updatable=false)
     private KhoaHoc khoahoc;
@@ -146,10 +147,10 @@ public class HocVien {
 		TYPE = tYPE;
 	}
 
-	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "hocvien")
-	@Column(nullable = true)
-	@JsonManagedReference
-    private List<HoSo> hoso;
+//	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "hocvien")
+//	@Column(nullable = true)
+//	@JsonManagedReference
+//    private List<HoSo> hoso;
 	
 	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "hocvien")
 	@Column(nullable = true)
@@ -268,13 +269,13 @@ public class HocVien {
 
 	
 
-	public List<HoSo> getHoso() {
-		return hoso;
-	}
-
-	public void setHoso(List<HoSo> hoso) {
-		this.hoso = hoso;
-	}
+//	public List<HoSo> getHoso() {
+//		return hoso;
+//	}
+//
+//	public void setHoso(List<HoSo> hoso) {
+//		this.hoso = hoso;
+//	}
 
 	public List<DiemMonHoc> getDiemmonhoc() {
 		return diemmonhoc;
