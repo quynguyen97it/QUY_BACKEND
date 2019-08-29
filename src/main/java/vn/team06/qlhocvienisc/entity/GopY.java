@@ -22,8 +22,8 @@ public class GopY {
 	private int ID;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="NGUOIGOPY", nullable = false)
-	@JsonBackReference
+    @JoinColumn(name="NGUOIGOPY")
+	
     private HocVien hocvien;
 	
 	@Column(nullable = true)
@@ -40,10 +40,17 @@ public class GopY {
 		ID = iD;
 	}
 
-	public HocVien getHocvien() {
-		return hocvien;
+	public String getMaHocvien() {
+		return hocvien.getMAHV();
+	}
+	
+	public String getTenHocvien() {
+		return hocvien.getTEN();
 	}
 
+	//public HocVien getHocvien() {
+	//	return hocvien;
+	//}
 	public void setHocvien(HocVien hocvien) {
 		this.hocvien = hocvien;
 	}
