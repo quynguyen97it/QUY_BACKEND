@@ -27,6 +27,10 @@ public class CanBoGiangVienService {
         return (List<CanBoGiangVien>) CanBoGiangVienRepository.findAll();
     }
     
+    public Optional<CanBoGiangVien> getCanBoGiangVienId(String Id) {
+        return  CanBoGiangVienRepository.findById(Id);
+    }
+    
     public CanBoGiangVien createCanBoGiangVien(CanBoGiangVien canbogiangvien) {
         return CanBoGiangVienRepository.save(canbogiangvien);
     }
@@ -77,7 +81,7 @@ public class CanBoGiangVienService {
         	cbgv.setHSLUONG(canbogiangvien.getHSLUONG());
         	cbgv.setNGAYVAOLAM(canbogiangvien.getNGAYVAOLAM());
         	cbgv.setPASSWORD(canbogiangvien.getPASSWORD());
-        	cbgv.setLoaitaikhoan(canbogiangvien.getLoaitaikhoan());
+        	cbgv.setACCOUNTTYPE(canbogiangvien.getACCOUNTTYPE());
             updatedCBGV = CanBoGiangVienRepository.save(cbgv);
          } else {
              throw new EntityNotFoundException();

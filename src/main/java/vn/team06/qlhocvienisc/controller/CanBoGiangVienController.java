@@ -1,6 +1,7 @@
 package vn.team06.qlhocvienisc.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import vn.team06.qlhocvienisc.entity.CanBoGiangVien;
 import vn.team06.qlhocvienisc.service.CanBoGiangVienService;
 
@@ -27,6 +27,10 @@ public class CanBoGiangVienController {
 	@RequestMapping(value = "/canbogiangvien")
     public List<CanBoGiangVien> canbogiangvien() {
         return CanBoGiangVienService.getAll();
+    }
+	@RequestMapping(value = "/canbogiangvien/{Id}", method = RequestMethod.GET)
+    public Optional<CanBoGiangVien> getCanBoGiangVienId(@PathVariable(value = "Id") String Id ){
+        return CanBoGiangVienService.getCanBoGiangVienId(Id);
     }
 	
     @RequestMapping(value = "/add_canbogiangvien", method = RequestMethod.POST)

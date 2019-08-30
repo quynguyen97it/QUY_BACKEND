@@ -4,8 +4,10 @@ import java.sql.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -58,9 +60,19 @@ public class CanBoGiangVien {
 	@Column(nullable = true)
 	private String PASSWORD;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="ACCOUNTTYPE")
-	LoaiTaiKhoan loaitaikhoan;
+	@Column(nullable = true)
+	private int ACCOUNTTYPE;
+	
+	public int getACCOUNTTYPE() {
+		return ACCOUNTTYPE;
+	}
+	
+	public void setACCOUNTTYPE(int ACCOUNTTYPE) {
+		this.ACCOUNTTYPE = ACCOUNTTYPE;
+	}
+	//@ManyToOne(fetch = FetchType.EAGER)
+	//@JoinColumn(name="ACCOUNTTYPE", insertable=false, updatable=false)
+	//private LoaiTaiKhoan loaitaikhoan;
 
 	public String getMACBGV() {
 		return MACBGV;
@@ -182,11 +194,11 @@ public class CanBoGiangVien {
 		PASSWORD = pASSWORD;
 	}
 
-	public LoaiTaiKhoan getLoaitaikhoan() {
-		return loaitaikhoan;
-	}
+	//public LoaiTaiKhoan getLoaitaikhoan() {
+	//	return loaitaikhoan;
+	//}
 
-	public void setLoaitaikhoan(LoaiTaiKhoan loaitaikhoan) {
-		this.loaitaikhoan = loaitaikhoan;
-	}
+	//public void setLoaitaikhoan(LoaiTaiKhoan loaitaikhoan) {
+	//	this.loaitaikhoan = loaitaikhoan;
+	//}
 }
