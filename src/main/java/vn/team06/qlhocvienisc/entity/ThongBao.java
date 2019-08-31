@@ -1,4 +1,5 @@
 package vn.team06.qlhocvienisc.entity;
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.CascadeType;
@@ -14,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "THONGBAO")
-public class ThongBao {
+public class ThongBao implements Serializable{
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
@@ -29,13 +30,13 @@ public class ThongBao {
 	@Column(nullable = true)
 	private Date NGAYDANG;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne//(cascade = CascadeType.ALL)
 	@JoinColumn(name = "NGUOIDANG")
 	private NguoiQuanLy nql;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne//(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MAKHOAHOC")
-	KhoaHoc khoahoc;
+	private KhoaHoc khoahoc;
 
 	public int getID() {
 		return ID;
@@ -69,16 +70,16 @@ public class ThongBao {
 		NGAYDANG = nGAYDANG;
 	}
 
-	public NguoiQuanLy getNql() {
-		return nql;
+	public String getNql() {
+		return nql.getTEN();
 	}
 
 	public void setNql(NguoiQuanLy nql) {
 		this.nql = nql;
 	}
 
-	public KhoaHoc getKhoahoc() {
-		return khoahoc;
+	public String getKhoahoc() {
+		return khoahoc.getTENKHOAHOC();
 	}
 
 	public void setKhoahoc(KhoaHoc khoahoc) {

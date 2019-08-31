@@ -60,7 +60,7 @@ public class NguoiQuanLy {
 	@Column(nullable = true)
 	private String PASSWORD;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne//(cascade = CascadeType.ALL)
 	@JoinColumn(name="ACCOUNTTYPE")
 	LoaiTaiKhoan loaitaikhoan;
 	

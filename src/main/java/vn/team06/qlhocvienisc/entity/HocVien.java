@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -159,7 +160,7 @@ public class HocVien {
 	
 	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "hocvien")
 	@Column(nullable = true)
-	@JsonManagedReference
+//	@JsonBackReference
     private List<GopY> gopy;
 	
 
