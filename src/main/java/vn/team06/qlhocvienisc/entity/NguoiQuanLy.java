@@ -1,72 +1,59 @@
 package vn.team06.qlhocvienisc.entity;
-import java.sql.Date;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "NGUOIQUANLY")
 public class NguoiQuanLy {
+
 	@Id 
 	@Column(nullable = false)
 	private String MANQL;
-
-	@Column(nullable = true)
+	
 	private String HO;
 	
-	@Column(nullable = true)
 	private String TENLOT;
 	
-	@Column(nullable = true)
 	private String TEN;
 	
-	@Column(nullable = true)
 	private String GIOITINH;
-	
-	@Column(nullable = true)
-	private Date NGAYSINH;
-	
-	@Column(nullable = true)
-	private String NOISINH;
-	
-	@Column(nullable = true)
-	private int CMND;
-	
-	@Column(nullable = true)
-	private int SDT;
-	
-	@Column(nullable = true)
+
 	private String EMAIL;
 	
-	@Column(nullable = true)
+	private Date NGAYSINH;
+	
+	private String NOISINH;
+	
+	private int CMND;
+	
+	private int SDT;
+	
 	private String DIACHI;
 	
-	@Column(nullable = true)
 	private int LUONG;
 	
-	@Column(nullable = true)
 	private int HSLUONG;
 	
-	@Column(nullable = true)
 	private Date NGAYVAOLAM;
 	
-	@Column(nullable = true)
 	private String PASSWORD;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="ACCOUNTTYPE")
-	LoaiTaiKhoan loaitaikhoan;
+	private int ACCOUNTTYPE;
 	
-	@OneToMany(mappedBy = "nql")
-	private Set<ThongBao> listThongBao;
-	
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="ACCOUNTTYPE", insertable=false, updatable=false)
+    private LoaiTaiKhoan loaitaikhoan;
+
 	public String getMANQL() {
 		return MANQL;
 	}
@@ -74,7 +61,7 @@ public class NguoiQuanLy {
 	public void setMANQL(String mANQL) {
 		MANQL = mANQL;
 	}
-	
+
 	public String getHO() {
 		return HO;
 	}
@@ -107,6 +94,14 @@ public class NguoiQuanLy {
 		GIOITINH = gIOITINH;
 	}
 
+	public String getEMAIL() {
+		return EMAIL;
+	}
+
+	public void setEMAIL(String eMAIL) {
+		EMAIL = eMAIL;
+	}
+
 	public Date getNGAYSINH() {
 		return NGAYSINH;
 	}
@@ -137,14 +132,6 @@ public class NguoiQuanLy {
 
 	public void setSDT(int sDT) {
 		SDT = sDT;
-	}
-
-	public String getEMAIL() {
-		return EMAIL;
-	}
-
-	public void setEMAIL(String eMAIL) {
-		EMAIL = eMAIL;
 	}
 
 	public String getDIACHI() {
@@ -187,11 +174,11 @@ public class NguoiQuanLy {
 		PASSWORD = pASSWORD;
 	}
 
-	public LoaiTaiKhoan getLoaitaikhoan() {
-		return loaitaikhoan;
+	public int getACCOUNTTYPE() {
+		return ACCOUNTTYPE;
 	}
 
-	public void setLoaitaikhoan(LoaiTaiKhoan loaitaikhoan) {
-		this.loaitaikhoan = loaitaikhoan;
+	public void setACCOUNTTYPE(int aCCOUNTTYPE) {
+		ACCOUNTTYPE = aCCOUNTTYPE;
 	}
 }
