@@ -17,98 +17,146 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name = "DIEMMONHOC")
 public class DiemMonHoc {
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
-	private int ID;
+	private int id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="MAHV", nullable = false)
+	@Column(nullable = true)
+	private Float diemgk;
+	
+	@Column(nullable = true)
+	private Float diemhp;
+	
+	@Column(nullable = true)
+	private Date ngaynhap;
+	
+	@Column(nullable = true)
+	private String ketqua;
+	
+	@ManyToOne
+    @JoinColumn(name="MAHV", insertable=false, updatable=false)
 	@JsonBackReference
     private HocVien hocvien;
 	
+	@ManyToOne
+	@JoinColumn(name="MAMH", insertable=false, updatable=false)
+	private MonHoc monhoc;
 	
-	@OneToOne
-	@JoinColumn(name="MAGV")
-	CanBoGiangVien cbgv;
+	@ManyToOne
+	@JoinColumn(name="MAGV", insertable=false, updatable=false)
+	private CanBoGiangVien cbgv;
 	
-	@Column(nullable = true)
-	private Float DIEMGK;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Float getDiemgk() {
+		return diemgk;
+	}
+
+	public void setDiemgk(Float diemgk) {
+		this.diemgk = diemgk;
+	}
+
+	public Float getDiemhp() {
+		return diemhp;
+	}
+
+	public void setDiemhp(Float diemhp) {
+		this.diemhp = diemhp;
+	}
+
+	public Date getNgaynhap() {
+		return ngaynhap;
+	}
+
+	public void setNgaynhap(Date ngaynhap) {
+		this.ngaynhap = ngaynhap;
+	}
+
+	public String getKetqua() {
+		return ketqua;
+	}
+
+	public void setKetqua(String ketqua) {
+		this.ketqua = ketqua;
+	}
 	
-	@Column(nullable = true)
-	private Float DIEMHP;
+	//-----------------------------
 	
-	@OneToOne
-	@JoinColumn(name="MAMH")
-	MonHoc monhoc;
+	public String getTenhv() {
+		return (new StringBuilder()).append(hocvien.getHO() + " ")
+				.append(hocvien.getTENLOT()  + " ")
+				.append(hocvien.getTEN())
+				.toString();
+	}
 	
-	@Column(nullable = true)
-	private Date NGAYNHAP;
+	public String getMakh() {
+		return hocvien.getMaKhoahoc();
+	}
 	
-	@Column(nullable = true)
-	private String KETQUA;
-
-	public int getID() {
-		return ID;
+	public String getTenkh() {
+		return hocvien.getTENKhoahoc();
+	}
+	
+//	public void setHocvien(HocVien hocvien) {
+//		this.hocvien = hocvien;
+//	}
+	
+	public String getTenmh() {
+		return monhoc.getTENMH();
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+//	public void setMonhoc(MonHoc monhoc) {
+//		this.monhoc = monhoc;
+//	}
+	
+	public String getTengv() {
+		return (new StringBuilder()).append(cbgv.getHO() + " ")
+				.append(cbgv.getTENLOT()  + " ")
+				.append(cbgv.getTEN())
+				.toString();
 	}
 
-	public HocVien getHocvien() {
-		return hocvien;
+//	public void setCbgv(CanBoGiangVien cbgv) {
+//		this.cbgv = cbgv;
+//	}
+	
+	//--------------------------
+	
+	private String mahv;
+	
+	private String mamh;
+	
+	private String magv;
+	
+	public String getMahv() {
+		return this.mahv;
+	}
+	
+	public void setMahv(String ma) {
+		this.mahv = ma;
+	}
+	
+	public String getMamh() {
+		return this.mamh;
+	}
+	
+	public void setMamh(String ma) {
+		this.mamh = ma;
+	}
+	
+	public String getMagv() {
+		return this.magv;
+	}
+	
+	public void setMagv(String ma) {
+		this.magv = ma;
 	}
 
-	public void setHocvien(HocVien hocvien) {
-		this.hocvien = hocvien;
-	}
-
-	public CanBoGiangVien getCbgv() {
-		return cbgv;
-	}
-
-	public void setCbgv(CanBoGiangVien cbgv) {
-		this.cbgv = cbgv;
-	}
-
-	public Float getDIEMGK() {
-		return DIEMGK;
-	}
-
-	public void setDIEMGK(Float dIEMGK) {
-		DIEMGK = dIEMGK;
-	}
-
-	public Float getDIEMHP() {
-		return DIEMHP;
-	}
-
-	public void setDIEMHP(Float dIEMHP) {
-		DIEMHP = dIEMHP;
-	}
-
-	public MonHoc getMonhoc() {
-		return monhoc;
-	}
-
-	public void setMonhoc(MonHoc monhoc) {
-		this.monhoc = monhoc;
-	}
-
-	public Date getNGAYNHAP() {
-		return NGAYNHAP;
-	}
-
-	public void setNGAYNHAP(Date nGAYNHAP) {
-		NGAYNHAP = nGAYNHAP;
-	}
-
-	public String getKETQUA() {
-		return KETQUA;
-	}
-
-	public void setKETQUA(String kETQUA) {
-		KETQUA = kETQUA;
-	}
 }

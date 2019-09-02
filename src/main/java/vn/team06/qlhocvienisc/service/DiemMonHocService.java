@@ -5,12 +5,9 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +15,7 @@ import vn.team06.qlhocvienisc.entity.DiemMonHoc;
 import vn.team06.qlhocvienisc.repository.DiemMonHocRepository;
 
 @Service
+@Transactional
 public class DiemMonHocService {
 	@Autowired
 	DiemMonHocRepository diemmonhocRepository;
@@ -36,7 +34,9 @@ public class DiemMonHocService {
         Optional<DiemMonHoc> searchEntity = diemmonhocRepository.findById(Id);
         if (searchEntity.isPresent()) {
         	DiemMonHoc dmh = searchEntity.get();
-//        	kh.setTENKHOAHOC(khoahoc.getTENKHOAHOC());
+        	dmh.setDiemgk(diemmonhoc.getDiemgk());
+        	dmh.setDiemhp(diemmonhoc.getDiemhp());
+        	dmh.setKetqua(diemmonhoc.getKetqua());
         	updatedDMH = diemmonhocRepository.save(dmh);
          } else {
              throw new EntityNotFoundException();
@@ -56,17 +56,17 @@ public class DiemMonHocService {
          return ResponseEntity.ok().build();
       }
       
-      public List<DiemMonHoc> getAllDiemMonHoc(Integer pageNo, Integer pageSize, String sortBy)
-      {
-          Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
-   
-          Page<DiemMonHoc> pagedResult = diemmonhocRepository.findAll(paging);
-           
-          if(pagedResult.hasContent()) {
-              return pagedResult.getContent();
-          } else {
-              return new ArrayList<DiemMonHoc>();
-          }
-      }
+//      public List<DiemMonHoc> getDiemMonHoc(String mamh, String makh)
+//      {   
+//    	  @SuppressWarnings("unchecked")
+//    	  List<DiemMonHoc> rs = (List<DiemMonHoc>) diemmonhocRepository.selectDiemMonHoc(mamh, makh);
+//           
+//    	  if(!rs.isEmpty()) {
+//              return rs;
+//          } else {
+//              return new ArrayList<DiemMonHoc>();
+//          }
+//      }
+      
 }
 

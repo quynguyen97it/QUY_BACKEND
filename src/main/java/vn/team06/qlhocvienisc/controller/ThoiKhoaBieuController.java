@@ -48,7 +48,7 @@ public class ThoiKhoaBieuController {
  
     @RequestMapping(value = "/thoikhoabieu/{id}", 
     		method = RequestMethod.PUT)
-    public ThoiKhoaBieu updateThongBao(@PathVariable(value = "id") Integer id, @Valid @RequestBody ThoiKhoaBieu thoikhoabieu) 
+    public ThoiKhoaBieu updateThoiKhoaBieu(@PathVariable(value = "id") Integer id, @Valid @RequestBody ThoiKhoaBieu thoikhoabieu) 
     {
         return thoikhoabieuService.updateThoiKhoaBieu(id, thoikhoabieu);
     }

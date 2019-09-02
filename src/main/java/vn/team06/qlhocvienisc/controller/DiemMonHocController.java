@@ -50,15 +50,14 @@ public class DiemMonHocController {
         return diemmonhocService.updateDiemMonHoc(id, diemmonhoc);
     }
     
-    @RequestMapping(value = "/diemmonhoc2", 
-    		method = RequestMethod.GET)
-    public ResponseEntity<List<DiemMonHoc>> getAllDiemMonHoc(
-                        @RequestParam(defaultValue = "0") Integer pageNo,
-                        @RequestParam(defaultValue = "2") Integer pageSize,
-                        @RequestParam(defaultValue = "MAHV") String sortBy)
-    {
-        List<DiemMonHoc> list = diemmonhocService.getAllDiemMonHoc(pageNo, pageSize, sortBy);
- 
-        return new ResponseEntity<List<DiemMonHoc>>(list, new HttpHeaders(), HttpStatus.OK);
-    }
+//    @RequestMapping(value = "/diemmonhoc3", 
+//    		method = RequestMethod.GET)
+//    public ResponseEntity<List<DiemMonHoc>> getAllDiemMonHocByKhoaHocVaMonHoc(
+//                        @RequestParam(defaultValue = "") String makh,
+//                        @RequestParam(defaultValue = "") String mamh)
+//    {
+//        List<DiemMonHoc> list = diemmonhocService.getDiemMonHoc(mamh, makh);
+// 
+//        return new ResponseEntity<List<DiemMonHoc>>(list, new HttpHeaders(), HttpStatus.OK);
+//    }
 }

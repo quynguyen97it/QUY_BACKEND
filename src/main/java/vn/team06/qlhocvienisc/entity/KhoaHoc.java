@@ -39,6 +39,17 @@ public class KhoaHoc {
 	
 	@OneToMany(mappedBy = "khoahoc", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Set<ThongBao> thongbao;
+	
+	@OneToMany(mappedBy = "khoahoc", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private Set<ThoiKhoaBieu> thoikhoabieu;
+
+	public Set<ThoiKhoaBieu> getThoikhoabieu() {
+		return thoikhoabieu;
+	}
+
+	public void setThoikhoabieu(Set<ThoiKhoaBieu> thoikhoabieu) {
+		this.thoikhoabieu = thoikhoabieu;
+	}
 
 	public Set<ThongBao> getThongbao() {
 		return thongbao;

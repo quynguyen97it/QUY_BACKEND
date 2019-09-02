@@ -36,9 +36,13 @@ public class ThoiKhoaBieuService {
         Optional<ThoiKhoaBieu> searchEntity = thoikhoabieuRepository.findById(Id);
         if (searchEntity.isPresent()) {
         	ThoiKhoaBieu tkb = searchEntity.get();
-//        	tb.setMATRUONG(truonghoc.getMATRUONG());
-//        	tb.setTENTRUONG(truonghoc.getTENTRUONG());
-//        	tb.setDIACHI(truonghoc.getDIACHI());
+        	tkb.setGIOBD(thoikhoabieu.getGIOBD());
+        	tkb.setGIOKT(thoikhoabieu.getGIOKT());
+        	tkb.setNGAYHOC(thoikhoabieu.getNGAYHOC());
+        	tkb.setMacbgv(thoikhoabieu.getMacbgv());
+        	tkb.setMakhoahoc(thoikhoabieu.getMakhoahoc());
+        	tkb.setMamh(thoikhoabieu.getMamh());
+        	tkb.setMaphg(thoikhoabieu.getMaphg());
             updatedTKB = thoikhoabieuRepository.save(tkb);
          } else {
              throw new EntityNotFoundException();
