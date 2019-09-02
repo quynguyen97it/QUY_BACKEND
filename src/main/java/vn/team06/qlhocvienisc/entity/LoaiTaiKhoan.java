@@ -21,15 +21,15 @@ public class LoaiTaiKhoan {
 	private String TENLOAI;
 	
 	@OneToMany(mappedBy = "loaitaikhoan", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    private Set<HocVien> hocvien;
+    //private Set<HocVien> hocvien;
 	
-	public Set<HocVien> getHocvien() {
-		return hocvien;
-	}
+	//public Set<HocVien> getHocvien() {
+	//	return hocvien;
+	//}
 
-	public void setHocvien(Set<HocVien> hocvien) {
-		this.hocvien = hocvien;
-	}
+	//public void setHocvien(Set<HocVien> hocvien) {
+	//	this.hocvien = hocvien;
+	//}
 
 	public Integer getID() {
 		return ID;
