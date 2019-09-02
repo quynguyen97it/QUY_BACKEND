@@ -1,5 +1,6 @@
 package vn.team06.qlhocvienisc.controller;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -25,6 +26,11 @@ public class TinhNangController {
 	@RequestMapping(value = "/tinhnang")
     public List<TinhNang> tinhnang() {
         return TinhNangService.getAll();
+    }
+	
+	@RequestMapping(value = "/tinhnang/{Id}", method = RequestMethod.GET)
+    public Optional<TinhNang> getTinhNangId(@PathVariable(value = "Id") int Id ){
+        return TinhNangService.getTinhNangId(Id);
     }
  
     @RequestMapping(value = "/add_tinhnang", method = RequestMethod.POST)

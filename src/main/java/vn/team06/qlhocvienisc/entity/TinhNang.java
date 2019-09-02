@@ -28,7 +28,7 @@ public class TinhNang {
 	@Column(nullable = true)
 	private int TYPE;
 	
-	@ManyToOne(cascade = CascadeType.REMOVE)
+	@ManyToOne()
 	@JoinColumn(name = "TYPE", insertable=false, updatable=false)
 	LoaiTaiKhoan loaitaikhoan;
 

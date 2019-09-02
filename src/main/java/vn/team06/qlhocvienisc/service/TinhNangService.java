@@ -13,9 +13,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import vn.team06.qlhocvienisc.entity.HocVien;
+
 import vn.team06.qlhocvienisc.entity.TinhNang;
-import vn.team06.qlhocvienisc.repository.HocVienRepository;
 import vn.team06.qlhocvienisc.repository.TinhNangRepository;
 
 @Service
@@ -25,6 +24,10 @@ public class TinhNangService {
 	
     public List<TinhNang> getAll() {
         return (List<TinhNang>) TinhNangRepository.findAll();
+    }
+    
+    public Optional<TinhNang> getTinhNangId(int Id) {
+        return  TinhNangRepository.findById(Id);
     }
      
     public TinhNang createTinhNang(TinhNang tinhnang) {
