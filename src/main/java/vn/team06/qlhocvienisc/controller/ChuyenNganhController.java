@@ -49,9 +49,21 @@ public class ChuyenNganhController {
     public ResponseEntity<List<ChuyenNganh>> getAllChuyenNganh(
                         @RequestParam(defaultValue = "0") Integer pageNo,
                         @RequestParam(defaultValue = "2") Integer pageSize,
+                        @RequestParam(defaultValue = "1") int idChuyennganh,
                         @RequestParam(defaultValue = "ID") String sortBy)
     {
-        List<ChuyenNganh> list = chuyennganhService.getAllChuyenNganh(pageNo, pageSize, sortBy);
+        List<ChuyenNganh> list = chuyennganhService.getAllChuyenNganh(pageNo, pageSize, idChuyennganh, sortBy);
+ 
+        return new ResponseEntity<List<ChuyenNganh>>(list, new HttpHeaders(), HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/chuyennganh3", method = RequestMethod.GET)
+    public ResponseEntity<List<ChuyenNganh>> getAllChuyenNganh2(
+                        @RequestParam(defaultValue = "0") Integer pageNo,
+                        @RequestParam(defaultValue = "2") Integer pageSize,
+                        @RequestParam(defaultValue = "ID") String sortBy)
+    {
+        List<ChuyenNganh> list = chuyennganhService.getAllChuyenNganh2(pageNo, pageSize, sortBy);
  
         return new ResponseEntity<List<ChuyenNganh>>(list, new HttpHeaders(), HttpStatus.OK);
     }

@@ -15,9 +15,7 @@ import org.springframework.stereotype.Service;
 
 import vn.team06.qlhocvienisc.entity.CanBoGiangVien;
 import vn.team06.qlhocvienisc.entity.GopY;
-import vn.team06.qlhocvienisc.entity.HocVien;
 import vn.team06.qlhocvienisc.repository.GopYRepository;
-import vn.team06.qlhocvienisc.repository.HocVienRepository;
 
 @Service
 public class GopYService {

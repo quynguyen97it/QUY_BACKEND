@@ -52,6 +52,7 @@ public class HocVienService {
             sv.setACCOUNTTYPE(hocvien.getACCOUNTTYPE());
             sv.setMAKHOAHOC(hocvien.getMAKHOAHOC());
             sv.setTYPE(hocvien.getTYPE());
+            sv.setANHDAIDIEN(hocvien.getANHDAIDIEN());
             sv.setTGCOTHEDILAM(hocvien.getTGCOTHEDILAM());
             updatedHV = hocvienRepository.save(sv);
          } else {
@@ -72,16 +73,32 @@ public class HocVienService {
          return ResponseEntity.ok().build();
       }    
     
-      public List<HocVien> getAllHocVien(Integer pageNo, Integer pageSize, String sortBy)
+      public List<HocVien> getAllHocVien(Integer pageNo, Integer pageSize,int typeSort, String maKH, String sortBy)
       {
-          Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
-   
-          Page<HocVien> pagedResult = hocvienRepository.findAll(paging);
-           
-          if(pagedResult.hasContent()) {
-              return pagedResult.getContent();
-          } else {
-              return new ArrayList<HocVien>();
-          }
+    	  if(typeSort==1)
+    	  {
+    		  Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(Sort.Direction.ASC, sortBy));
+    		   
+              Page<HocVien> pagedResult = hocvienRepository.findCourse(maKH,paging);
+               
+              if(pagedResult.hasContent()) {
+                  return pagedResult.getContent();
+              } else {
+                  return new ArrayList<HocVien>();
+              }
+    	  }
+    	  else
+    	  {
+    		  Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(Sort.Direction.DESC, sortBy));
+    		   
+              Page<HocVien> pagedResult = hocvienRepository.findAll(paging);
+               
+              if(pagedResult.hasContent()) {
+                  return pagedResult.getContent();
+              } else {
+                  return new ArrayList<HocVien>();
+              }
+    	  }
+          
       }
 }

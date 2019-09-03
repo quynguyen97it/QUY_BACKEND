@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,9 +51,11 @@ public class HocVienController {
     public ResponseEntity<List<HocVien>> getAllHocVien(
                         @RequestParam(defaultValue = "0") Integer pageNo,
                         @RequestParam(defaultValue = "2") Integer pageSize,
+                        @RequestParam(defaultValue = "1") int typeSort,
+                        @RequestParam(defaultValue = "ISC09") String maKH,
                         @RequestParam(defaultValue = "MAHV") String sortBy)
     {
-        List<HocVien> list = hocvienService.getAllHocVien(pageNo, pageSize, sortBy);
+        List<HocVien> list = hocvienService.getAllHocVien(pageNo, pageSize, typeSort, maKH, sortBy);
  
         return new ResponseEntity<List<HocVien>>(list, new HttpHeaders(), HttpStatus.OK);
     }

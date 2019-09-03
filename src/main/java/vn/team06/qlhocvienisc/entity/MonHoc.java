@@ -25,6 +25,16 @@ public class MonHoc {
 	@Column(nullable = true)
 	private int SOGIO;
 	
+	@Column(nullable = true)
+	private int SOTC;
+
+	public int getSOTC() {
+		return SOTC;
+	}
+
+	public void setSOTC(int sOTC) {
+		SOTC = sOTC;
+	}
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "DAOTAO",

@@ -39,6 +39,7 @@ public class TruongHocService {
             th.setMATRUONG(truonghoc.getMATRUONG());
             th.setTENTRUONG(truonghoc.getTENTRUONG());
             th.setDIACHI(truonghoc.getDIACHI());
+            th.setSDT(truonghoc.getSDT());
             updatedTH = truonghocRepository.save(th);
          } else {
              throw new EntityNotFoundException();

@@ -1,6 +1,5 @@
 package vn.team06.qlhocvienisc.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,17 +55,4 @@ public class DiemMonHocService {
          return ResponseEntity.ok().build();
       }
       
-//      public List<DiemMonHoc> getDiemMonHoc(String mamh, String makh)
-//      {   
-//    	  @SuppressWarnings("unchecked")
-//    	  List<DiemMonHoc> rs = (List<DiemMonHoc>) diemmonhocRepository.selectDiemMonHoc(mamh, makh);
-//           
-//    	  if(!rs.isEmpty()) {
-//              return rs;
-//          } else {
-//              return new ArrayList<DiemMonHoc>();
-//          }
-//      }
-      
 }
-

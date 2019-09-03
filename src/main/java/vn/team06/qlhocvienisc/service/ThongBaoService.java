@@ -36,9 +36,6 @@ public class ThongBaoService {
         Optional<ThongBao> searchEntity = thongbaoRepository.findById(Id);
         if (searchEntity.isPresent()) {
         	ThongBao tb = searchEntity.get();
-//        	tb.setMATRUONG(truonghoc.getMATRUONG());
-//        	tb.setTENTRUONG(truonghoc.getTENTRUONG());
-//        	tb.setDIACHI(truonghoc.getDIACHI());
             updatedTB = thongbaoRepository.save(tb);
          } else {
              throw new EntityNotFoundException();

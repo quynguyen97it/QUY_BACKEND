@@ -31,8 +31,20 @@ public class ChuyenNganh {
 	@OneToMany(mappedBy = "chuyennganh", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Set<KhoaHoc> khoahoc;
 	
+
 	@ManyToMany(mappedBy="chuyennganh",fetch = FetchType.EAGER)
-	private Set<MonHoc> monhoc;
+	private List<MonHoc> monhoc;
+	
+
+	
+
+	public List<MonHoc> getMonhoc() {
+		return monhoc;
+	}
+
+	public void setMonhoc(List<MonHoc> monhoc) {
+		this.monhoc = monhoc;
+	}
 
 	public int getID() {
 		return ID;
@@ -56,14 +68,6 @@ public class ChuyenNganh {
 
 	public void setKhoahoc(Set<KhoaHoc> khoahoc) {
 		this.khoahoc = khoahoc;
-	}
-	
-	public Set<MonHoc> getMonhoc() {
-		return monhoc;
-	}
-
-	public void setMonhoc(Set<MonHoc> monhoc) {
-		this.monhoc = monhoc;
 	}
 	
 }

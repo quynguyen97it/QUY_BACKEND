@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,11 +29,11 @@ public class ThongBao implements Serializable{
 	@Column(nullable = true)
 	private Date NGAYDANG;
 	
-	@ManyToOne//(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "NGUOIDANG")
 	private NguoiQuanLy nql;
 	
-	@ManyToOne//(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "MAKHOAHOC")
 	private KhoaHoc khoahoc;
 

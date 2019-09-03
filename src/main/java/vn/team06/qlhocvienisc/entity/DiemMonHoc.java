@@ -3,13 +3,11 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -96,25 +94,10 @@ public class DiemMonHoc {
 				.toString();
 	}
 	
-	public String getMakh() {
-		return hocvien.getMaKhoahoc();
-	}
-	
-	public String getTenkh() {
-		return hocvien.getTENKhoahoc();
-	}
-	
-//	public void setHocvien(HocVien hocvien) {
-//		this.hocvien = hocvien;
-//	}
-	
 	public String getTenmh() {
 		return monhoc.getTENMH();
 	}
 
-//	public void setMonhoc(MonHoc monhoc) {
-//		this.monhoc = monhoc;
-//	}
 	
 	public String getTengv() {
 		return (new StringBuilder()).append(cbgv.getHO() + " ")
@@ -122,12 +105,6 @@ public class DiemMonHoc {
 				.append(cbgv.getTEN())
 				.toString();
 	}
-
-//	public void setCbgv(CanBoGiangVien cbgv) {
-//		this.cbgv = cbgv;
-//	}
-	
-	//--------------------------
 	
 	private String mahv;
 	

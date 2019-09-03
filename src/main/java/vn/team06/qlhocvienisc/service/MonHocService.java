@@ -38,6 +38,7 @@ public class MonHocService {
         	MonHoc mh = searchEntity.get();
             mh.setTENMH(monhoc.getTENMH());
             mh.setSOGIO(monhoc.getSOGIO());
+            mh.setSOTC(monhoc.getSOTC());
             updatedMH = monhocRepository.save(mh);
          } else {
              throw new EntityNotFoundException();
