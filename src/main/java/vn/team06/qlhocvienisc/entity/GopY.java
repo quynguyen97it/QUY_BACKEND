@@ -23,15 +23,44 @@ public class GopY {
 	private int ID;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="NGUOIGOPY")
+    @JoinColumn(name="NGUOIGOPY", insertable=false, updatable=false)
 //	@JsonManagedReference
     private HocVien hocvien;
+	
+	//@ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name="NGUOINHAN", insertable=false, updatable=false)
+//	@JsonManagedReference
+    //private CanBoGiangVien canbogiangvien;
+	
 	
 	@Column(nullable = true)
 	private String NOIDUNG;
 	
 	@Column(nullable = true)
 	private Date NGAYNHAN;
+	
+	@Column(nullable = true)
+	private String NGUOIGOPY;
+	
+	//@Column(nullable = true)
+	//private String NGUOINHAN;
+	
+
+	//public String getNGUOINHAN() {
+	//	return NGUOINHAN;
+	//}
+
+	//public void setNGUOINHAN(String nGUOINHAN) {
+	//	NGUOINHAN = nGUOINHAN;
+	//}
+	
+	public String getNGUOIGOPY() {
+		return NGUOIGOPY;
+	}
+
+	public void setNGUOIGOPY(String nGUOIGOPY) {
+		NGUOIGOPY = nGUOIGOPY;
+	}
 
 	public int getID() {
 		return ID;
@@ -41,21 +70,29 @@ public class GopY {
 		ID = iD;
 	}
 
-	public String getMaHocvien() {
-		return hocvien.getMAHV();
-	}
+	//public String getMaHocvien() {
+	//	return hocvien.getMAHV();
+	//}
 	
-	public String getTenHocvien() {
-		return hocvien.getTEN();
-	}
+	//public void setMaHocvien(String mahocvien) {
+	//	hocvien.setMAHV(this.getMaHocvien());;
+	//}
+	
+	//public String getTenHocvien() {
+	//	return hocvien.getTEN();
+	//}
+	//public void setTenHocvien(String tenhocvien) {
+	//	hocvien.setTEN(this.getTenHocvien());;
+	//}
+	
 
-	public HocVien getHocvien() {
-		return hocvien;
-	}
+	//public HocVien getHocvien() {
+	//	return hocvien;
+	//}
 	
-	public void setHocvien(HocVien hocvien) {
-		this.hocvien = hocvien;
-	}
+	//public void setHocvien(HocVien hocvien) {
+	//	this.hocvien = hocvien;
+	//}
 
 	public String getNOIDUNG() {
 		return NOIDUNG;
