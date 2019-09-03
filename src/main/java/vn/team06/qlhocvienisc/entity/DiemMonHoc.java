@@ -17,146 +17,98 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name = "DIEMMONHOC")
 public class DiemMonHoc {
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
-	private int id;
+	private int ID;
 	
-	@Column(nullable = true)
-	private Float diemgk;
-	
-	@Column(nullable = true)
-	private Float diemhp;
-	
-	@Column(nullable = true)
-	private Date ngaynhap;
-	
-	@Column(nullable = true)
-	private String ketqua;
-	
-	@ManyToOne
-    @JoinColumn(name="MAHV", insertable=false, updatable=false)
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="MAHV", nullable = false)
 	@JsonBackReference
     private HocVien hocvien;
 	
-	@ManyToOne
-	@JoinColumn(name="MAMH", insertable=false, updatable=false)
-	private MonHoc monhoc;
 	
-	@ManyToOne
-	@JoinColumn(name="MAGV", insertable=false, updatable=false)
-	private CanBoGiangVien cbgv;
+	@OneToOne
+	@JoinColumn(name="MAGV")
+	CanBoGiangVien cbgv;
 	
-	public int getId() {
-		return id;
+	@Column(nullable = true)
+	private Float DIEMGK;
+	
+	@Column(nullable = true)
+	private Float DIEMHP;
+	
+	@OneToOne
+	@JoinColumn(name="MAMH")
+	MonHoc monhoc;
+	
+	@Column(nullable = true)
+	private Date NGAYNHAP;
+	
+	@Column(nullable = true)
+	private String KETQUA;
+
+	public int getID() {
+		return ID;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setID(int iD) {
+		ID = iD;
 	}
 
-	public Float getDiemgk() {
-		return diemgk;
+	public HocVien getHocvien() {
+		return hocvien;
 	}
 
-	public void setDiemgk(Float diemgk) {
-		this.diemgk = diemgk;
+	public void setHocvien(HocVien hocvien) {
+		this.hocvien = hocvien;
 	}
 
-	public Float getDiemhp() {
-		return diemhp;
+	public CanBoGiangVien getCbgv() {
+		return cbgv;
 	}
 
-	public void setDiemhp(Float diemhp) {
-		this.diemhp = diemhp;
+	public void setCbgv(CanBoGiangVien cbgv) {
+		this.cbgv = cbgv;
 	}
 
-	public Date getNgaynhap() {
-		return ngaynhap;
+	public Float getDIEMGK() {
+		return DIEMGK;
 	}
 
-	public void setNgaynhap(Date ngaynhap) {
-		this.ngaynhap = ngaynhap;
+	public void setDIEMGK(Float dIEMGK) {
+		DIEMGK = dIEMGK;
 	}
 
-	public String getKetqua() {
-		return ketqua;
+	public Float getDIEMHP() {
+		return DIEMHP;
 	}
 
-	public void setKetqua(String ketqua) {
-		this.ketqua = ketqua;
-	}
-	
-	//-----------------------------
-	
-	public String getTenhv() {
-		return (new StringBuilder()).append(hocvien.getHO() + " ")
-				.append(hocvien.getTENLOT()  + " ")
-				.append(hocvien.getTEN())
-				.toString();
-	}
-	
-	public String getMakh() {
-		return hocvien.getMaKhoahoc();
-	}
-	
-	public String getTenkh() {
-		return hocvien.getTENKhoahoc();
-	}
-	
-//	public void setHocvien(HocVien hocvien) {
-//		this.hocvien = hocvien;
-//	}
-	
-	public String getTenmh() {
-		return monhoc.getTENMH();
+	public void setDIEMHP(Float dIEMHP) {
+		DIEMHP = dIEMHP;
 	}
 
-//	public void setMonhoc(MonHoc monhoc) {
-//		this.monhoc = monhoc;
-//	}
-	
-	public String getTengv() {
-		return (new StringBuilder()).append(cbgv.getHO() + " ")
-				.append(cbgv.getTENLOT()  + " ")
-				.append(cbgv.getTEN())
-				.toString();
+	public MonHoc getMonhoc() {
+		return monhoc;
 	}
 
-//	public void setCbgv(CanBoGiangVien cbgv) {
-//		this.cbgv = cbgv;
-//	}
-	
-	//--------------------------
-	
-	private String mahv;
-	
-	private String mamh;
-	
-	private String magv;
-	
-	public String getMahv() {
-		return this.mahv;
-	}
-	
-	public void setMahv(String ma) {
-		this.mahv = ma;
-	}
-	
-	public String getMamh() {
-		return this.mamh;
-	}
-	
-	public void setMamh(String ma) {
-		this.mamh = ma;
-	}
-	
-	public String getMagv() {
-		return this.magv;
-	}
-	
-	public void setMagv(String ma) {
-		this.magv = ma;
+	public void setMonhoc(MonHoc monhoc) {
+		this.monhoc = monhoc;
 	}
 
+	public Date getNGAYNHAP() {
+		return NGAYNHAP;
+	}
+
+	public void setNGAYNHAP(Date nGAYNHAP) {
+		NGAYNHAP = nGAYNHAP;
+	}
+
+	public String getKETQUA() {
+		return KETQUA;
+	}
+
+	public void setKETQUA(String kETQUA) {
+		KETQUA = kETQUA;
+	}
 }

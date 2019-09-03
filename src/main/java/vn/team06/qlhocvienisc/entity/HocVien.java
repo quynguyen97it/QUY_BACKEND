@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -54,24 +53,22 @@ public class HocVien {
 	
 	private String TYPE;
 	
-	public String getMaTruonghoc() {
-		return truonghoc.getMATRUONG();
-	}	
-	public String getTenTruonghoc() {
-		return truonghoc.getTENTRUONG();
+	private String ANHDAIDIEN;
+	
+	
+
+	public String getANHDAIDIEN() {
+		return ANHDAIDIEN;
+	}
+
+	public void setANHDAIDIEN(String aNHDAIDIEN) {
+		ANHDAIDIEN = aNHDAIDIEN;
 	}
 
 	public void setTruonghoc(TruongHoc truonghoc) {
 		this.truonghoc = truonghoc;
 	}
 
-	public String getMaKhoahoc() {
-		return khoahoc.getMAKHOAHOC();
-	}
-	
-	public String getTENKhoahoc() {
-		return khoahoc.getTENKHOAHOC();
-	}
 	public void setKhoahoc(KhoaHoc khoahoc) {
 		this.khoahoc = khoahoc;
 	}
@@ -80,28 +77,15 @@ public class HocVien {
 		this.loaitaikhoan = loaitaikhoan;
 	}
 	
-	public Integer getIDLoaitaikhoan() {
-		return loaitaikhoan.getID();
-	}
-
-	public String getTenLoaitaikhoan() {
-		return loaitaikhoan.getTENLOAI();
-	}
 	public void setDanhmuchocvien(DanhMucHocVien danhmuchocvien) {
 		this.danhmuchocvien = danhmuchocvien;
 	}
 
-	public Integer getIDDanhmuchocvien() {
-		return danhmuchocvien.getID();
-	}
-	
-	public String getTenLoaiDanhmuchocvien() {
-		return danhmuchocvien.getTENLOAI();
-	}
 
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="MATRUONG",insertable=false, updatable=false)
     private TruongHoc truonghoc;
+	
 	
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -148,10 +132,10 @@ public class HocVien {
 		TYPE = tYPE;
 	}
 
-//	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "hocvien")
-//	@Column(nullable = true)
-//	@JsonManagedReference
-//    private List<HoSo> hoso;
+	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "hocvien")
+	@Column(nullable = true)
+	@JsonManagedReference
+    private List<HoSo> hoso;
 	
 	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "hocvien")
 	@Column(nullable = true)
@@ -160,8 +144,11 @@ public class HocVien {
 	
 	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "hocvien")
 	@Column(nullable = true)
-//	@JsonBackReference
+	@JsonManagedReference
     private List<GopY> gopy;
+	
+	
+	
 	
 
 	public String getMAHV() {
@@ -270,13 +257,13 @@ public class HocVien {
 
 	
 
-//	public List<HoSo> getHoso() {
-//		return hoso;
-//	}
-//
-//	public void setHoso(List<HoSo> hoso) {
-//		this.hoso = hoso;
-//	}
+	public List<HoSo> getHoso() {
+		return hoso;
+	}
+
+	public void setHoso(List<HoSo> hoso) {
+		this.hoso = hoso;
+	}
 
 	public List<DiemMonHoc> getDiemmonhoc() {
 		return diemmonhoc;

@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "GOPY")
@@ -23,8 +22,8 @@ public class GopY {
 	private int ID;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="NGUOIGOPY")
-//	@JsonManagedReference
+    @JoinColumn(name="NGUOIGOPY", nullable = false)
+	@JsonBackReference
     private HocVien hocvien;
 	
 	@Column(nullable = true)
@@ -41,18 +40,10 @@ public class GopY {
 		ID = iD;
 	}
 
-	public String getMaHocvien() {
-		return hocvien.getMAHV();
-	}
-	
-	public String getTenHocvien() {
-		return hocvien.getTEN();
-	}
-
 	public HocVien getHocvien() {
 		return hocvien;
 	}
-	
+
 	public void setHocvien(HocVien hocvien) {
 		this.hocvien = hocvien;
 	}

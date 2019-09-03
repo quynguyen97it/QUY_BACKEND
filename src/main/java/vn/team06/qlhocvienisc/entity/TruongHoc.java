@@ -20,6 +20,17 @@ public class TruongHoc {
 	private String TENTRUONG;
 	
 	private String DIACHI;
+	
+	private String SDT;
+	
+
+	public String getSDT() {
+		return SDT;
+	}
+
+	public void setSDT(String sDT) {
+		SDT = sDT;
+	}
 
 	@OneToMany(mappedBy = "truonghoc", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Set<HocVien> hocvien;

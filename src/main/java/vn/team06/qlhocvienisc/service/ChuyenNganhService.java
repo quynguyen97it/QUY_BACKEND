@@ -56,7 +56,20 @@ public class ChuyenNganhService {
          return ResponseEntity.ok().build();
       }
       
-      public List<ChuyenNganh> getAllChuyenNganh(Integer pageNo, Integer pageSize, String sortBy)
+      public List<ChuyenNganh> getAllChuyenNganh(Integer pageNo, Integer pageSize, int id, String sortBy)
+      {
+          Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
+   
+          Page<ChuyenNganh> pagedResult = chuyennganhRepository.findMajor(id,paging);
+           
+          if(pagedResult.hasContent()) {
+              return pagedResult.getContent();
+          } else {
+              return new ArrayList<ChuyenNganh>();
+          }
+      }
+      
+      public List<ChuyenNganh> getAllChuyenNganh2(Integer pageNo, Integer pageSize, String sortBy)
       {
           Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
    

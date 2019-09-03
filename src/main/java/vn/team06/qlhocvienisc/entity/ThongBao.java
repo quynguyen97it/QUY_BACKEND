@@ -1,5 +1,4 @@
 package vn.team06.qlhocvienisc.entity;
-import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.CascadeType;
@@ -9,13 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "THONGBAO")
-public class ThongBao implements Serializable{
+public class ThongBao {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
@@ -27,16 +25,16 @@ public class ThongBao implements Serializable{
 	@Column(nullable = true)
 	private String NOIDUNG;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "NGUOIDANG")
+	CanBoGiangVien cbgv;
+	
 	@Column(nullable = true)
 	private Date NGAYDANG;
 	
-	@ManyToOne//(cascade = CascadeType.ALL)
-	@JoinColumn(name = "NGUOIDANG")
-	private NguoiQuanLy nql;
-	
-	@ManyToOne//(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MAKHOAHOC")
-	private KhoaHoc khoahoc;
+	KhoaHoc khoahoc;
 
 	public int getID() {
 		return ID;
@@ -70,16 +68,16 @@ public class ThongBao implements Serializable{
 		NGAYDANG = nGAYDANG;
 	}
 
-	public String getNql() {
-		return nql.getTEN();
+	public CanBoGiangVien getCbgv() {
+		return cbgv;
 	}
 
-	public void setNql(NguoiQuanLy nql) {
-		this.nql = nql;
+	public void setCbgv(CanBoGiangVien cbgv) {
+		this.cbgv = cbgv;
 	}
 
-	public String getKhoahoc() {
-		return khoahoc.getTENKHOAHOC();
+	public KhoaHoc getKhoahoc() {
+		return khoahoc;
 	}
 
 	public void setKhoahoc(KhoaHoc khoahoc) {

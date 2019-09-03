@@ -39,7 +39,7 @@ public class KhoaHocService {
         	kh.setTENKHOAHOC(khoahoc.getTENKHOAHOC());
         	kh.setNGAYBD(khoahoc.getNGAYBD());
         	kh.setNGAYKT(khoahoc.getNGAYKT());
-//        	kh.setCHUYENNGANH_ID(khoahoc.getCHUYENNGANH_ID());
+        	kh.setCHUYENNGANH_ID(khoahoc.getCHUYENNGANH_ID());
             updatedKH = khoahocRepository.save(kh);
          } else {
              throw new EntityNotFoundException();

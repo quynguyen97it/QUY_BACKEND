@@ -7,12 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TINHNANG")
+@Table(name = "CHUYENNGANH")
 public class TinhNang {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,35 +24,32 @@ public class TinhNang {
 	@Column(nullable = true)
 	private String LINK;
 	
-	@Column(nullable = true)
-	private int TYPE;
-	
-	@ManyToOne()
-	@JoinColumn(name = "TYPE", insertable=false, updatable=false)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "TYPE")
 	LoaiTaiKhoan loaitaikhoan;
 
 	public int getID() {
 		return ID;
 	}
 
-	public void setID(int ID) {
-		this.ID = ID;
+	public void setID(int iD) {
+		ID = iD;
 	}
 
 	public String getTENMENU() {
 		return TENMENU;
 	}
 
-	public void setTENMENU(String TENMENU) {
-		this.TENMENU = TENMENU;
+	public void setTENMENU(String tENMENU) {
+		TENMENU = tENMENU;
 	}
 
 	public String getLINK() {
 		return LINK;
 	}
 
-	public void setLINK(String LINK) {
-		this.LINK = LINK;
+	public void setLINK(String lINK) {
+		LINK = lINK;
 	}
 
 	public LoaiTaiKhoan getLoaitaikhoan() {
@@ -62,14 +58,6 @@ public class TinhNang {
 
 	public void setLoaitaikhoan(LoaiTaiKhoan loaitaikhoan) {
 		this.loaitaikhoan = loaitaikhoan;
-	}
-	
-	public int getType() {
-		return TYPE;
-	}
-	
-	public void setType(int TYPE) {
-		this.TYPE = TYPE;
 	}
 	
 }
