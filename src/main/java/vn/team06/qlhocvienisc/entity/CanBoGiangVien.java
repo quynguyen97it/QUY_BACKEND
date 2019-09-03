@@ -5,13 +5,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-<<<<<<< HEAD
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-=======
->>>>>>> 405839c8c3e8b310494754b5635ffb1959dd12e0
+
 import javax.persistence.Table;
 
 @Entity

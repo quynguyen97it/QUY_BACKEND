@@ -55,9 +55,10 @@ public class CanBoGiangVienController {
     public ResponseEntity<List<CanBoGiangVien>> getAllCanBoGiangVien(
                         @RequestParam(defaultValue = "0") Integer pageNo,
                         @RequestParam(defaultValue = "2") Integer pageSize,
-                        @RequestParam(defaultValue = "MAHV") String sortBy)
+                        @RequestParam(defaultValue = "1") int typeSort,
+                        @RequestParam(defaultValue = "MACBGV") String sortBy)
     {
-        List<CanBoGiangVien> list = CanBoGiangVienService.getAllCanBoGiangVien(pageNo, pageSize, sortBy);
+        List<CanBoGiangVien> list = CanBoGiangVienService.getAllCanBoGiangVien(pageNo, pageSize,typeSort , sortBy);
  
         return new ResponseEntity<List<CanBoGiangVien>>(list, new HttpHeaders(), HttpStatus.OK);
     }
