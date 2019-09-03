@@ -1,7 +1,10 @@
 package vn.team06.qlhocvienisc.entity;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +16,9 @@ public class PhongHoc {
 	
 	@Column(nullable = true)
 	private String TENPHG;
+	
+	@OneToMany(mappedBy="phonghoc")
+    private List<ThoiKhoaBieu> thoikhoabieu;
 
 	public String getMAPHG() {
 		return MAPHG;

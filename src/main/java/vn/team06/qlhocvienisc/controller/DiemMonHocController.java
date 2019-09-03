@@ -5,14 +5,11 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -49,15 +46,4 @@ public class DiemMonHocController {
     {
         return diemmonhocService.updateDiemMonHoc(id, diemmonhoc);
     }
-    
-//    @RequestMapping(value = "/diemmonhoc3", 
-//    		method = RequestMethod.GET)
-//    public ResponseEntity<List<DiemMonHoc>> getAllDiemMonHocByKhoaHocVaMonHoc(
-//                        @RequestParam(defaultValue = "") String makh,
-//                        @RequestParam(defaultValue = "") String mamh)
-//    {
-//        List<DiemMonHoc> list = diemmonhocService.getDiemMonHoc(mamh, makh);
-// 
-//        return new ResponseEntity<List<DiemMonHoc>>(list, new HttpHeaders(), HttpStatus.OK);
-//    }
 }
