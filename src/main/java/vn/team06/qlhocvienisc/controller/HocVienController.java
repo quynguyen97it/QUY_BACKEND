@@ -1,6 +1,7 @@
 package vn.team06.qlhocvienisc.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -58,5 +59,11 @@ public class HocVienController {
         List<HocVien> list = hocvienService.getAllHocVien(pageNo, pageSize, typeSort, maKH, sortBy);
  
         return new ResponseEntity<List<HocVien>>(list, new HttpHeaders(), HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/timkiemhocvien/{id}", method = RequestMethod.GET)
+    public HocVien timkiemHocvien(@PathVariable(value = "id") String id) 
+    {
+        return hocvienService.timkiemHocvien(id);
     }
 }

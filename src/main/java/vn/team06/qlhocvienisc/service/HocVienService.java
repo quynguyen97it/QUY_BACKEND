@@ -101,4 +101,15 @@ public class HocVienService {
     	  }
           
       }
+      
+	public HocVien timkiemHocvien(String Id) 
+      {
+        Optional<HocVien> hocvien = hocvienRepository.findById(Id);
+        if (hocvien.isPresent()) {
+           HocVien hv = hocvien.get();
+           return  hv;
+         } else {
+                throw new EntityNotFoundException();
+         }
+      }
 }

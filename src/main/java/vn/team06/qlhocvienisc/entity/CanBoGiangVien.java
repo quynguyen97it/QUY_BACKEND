@@ -65,9 +65,6 @@ public class CanBoGiangVien {
 	public void setACCOUNTTYPE(int ACCOUNTTYPE) {
 		this.ACCOUNTTYPE = ACCOUNTTYPE;
 	}
-	//@ManyToOne(fetch = FetchType.EAGER)
-	//@JoinColumn(name="ACCOUNTTYPE", insertable=false, updatable=false)
-	//private LoaiTaiKhoan loaitaikhoan;
 
 	public String getMACBGV() {
 		return MACBGV;
