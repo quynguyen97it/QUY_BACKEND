@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import vn.team06.qlhocvienisc.entity.CanBoGiangVien;
 import vn.team06.qlhocvienisc.entity.GopY;
 import vn.team06.qlhocvienisc.repository.GopYRepository;
 
@@ -25,6 +26,10 @@ public class GopYService {
         
     public List<GopY> getAll() {
         return (List<GopY>) GopYRepository.findAll();
+    }
+    
+    public Optional<GopY> getGopYId(int Id) {
+        return  GopYRepository.findById(Id);
     }
      
     public GopY createGopY(GopY gopy) {

@@ -1,6 +1,7 @@
 package vn.team06.qlhocvienisc.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import vn.team06.qlhocvienisc.entity.CanBoGiangVien;
 import vn.team06.qlhocvienisc.entity.GopY;
 import vn.team06.qlhocvienisc.service.GopYService;
 
@@ -27,6 +28,11 @@ public class GopYController {
 	@RequestMapping(value = "/gopy")
     public List<GopY> hocvien() {
         return GopYService.getAll();
+    }
+	
+	@RequestMapping(value = "/gopy/{Id}", method = RequestMethod.GET)
+    public Optional<GopY> getGopYId(@PathVariable(value = "Id") int Id ){
+        return GopYService.getGopYId(Id);
     }
  
     @RequestMapping(value = "/add_gopy", method = RequestMethod.POST)
