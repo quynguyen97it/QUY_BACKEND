@@ -135,5 +135,9 @@ public class DiemMonHoc {
 	public void setMagv(String ma) {
 		this.magv = ma;
 	}
+	
+	public String getMakh() {
+		return hocvien.getMAKHOAHOC();
+	}
 
 }
