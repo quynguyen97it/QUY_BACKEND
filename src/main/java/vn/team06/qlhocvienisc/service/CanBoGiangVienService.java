@@ -49,15 +49,30 @@ public class CanBoGiangVienService {
     
     public List<CanBoGiangVien> getAllCanBoGiangVien(Integer pageNo, Integer pageSize, int typeSort, String sortBy)
     {
-          Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(Sort.Direction.DESC, sortBy));
-          
-          Page<CanBoGiangVien> pagedResult = CanBoGiangVienRepository.findAll(paging);
-           
-          if(pagedResult.hasContent()) {
-              return pagedResult.getContent();
-          } else {
-              return new ArrayList<CanBoGiangVien>();
-          }
+    	if (typeSort == 1)
+    	{
+            Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(Sort.Direction.DESC, sortBy));
+            
+            Page<CanBoGiangVien> pagedResult = CanBoGiangVienRepository.findAll(paging);
+             
+            if(pagedResult.hasContent()) {
+                return pagedResult.getContent();
+            } else {
+                return new ArrayList<CanBoGiangVien>();
+            }
+    	}
+    	else
+    	{
+            Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(Sort.Direction.ASC, sortBy));
+            
+            Page<CanBoGiangVien> pagedResult = CanBoGiangVienRepository.findAll(paging);
+             
+            if(pagedResult.hasContent()) {
+                return pagedResult.getContent();
+            } else {
+                return new ArrayList<CanBoGiangVien>();
+            }
+    	}
   
     }
     
