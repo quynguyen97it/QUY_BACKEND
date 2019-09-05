@@ -71,8 +71,7 @@ public class CanBoGiangVien {
 	public void setACCOUNTTYPE(int ACCOUNTTYPE) {
 		this.ACCOUNTTYPE = ACCOUNTTYPE;
 	}
-<<<<<<< HEAD
-=======
+	
 	//@ManyToOne(fetch = FetchType.EAGER)
 	//@JoinColumn(name="ACCOUNTTYPE", insertable=false, updatable=false)
 	//private LoaiTaiKhoan loaitaikhoan;
@@ -81,7 +80,6 @@ public class CanBoGiangVien {
 	//@Column(nullable = true)
 //	@JsonBackReference
     //private List<GopY> gopy;
->>>>>>> 2ba87c451af2c30dac34757e0ff514c159060dab
 
 	//public List<GopY> getGopy() {
 	//	return gopy;

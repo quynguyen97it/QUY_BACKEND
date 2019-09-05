@@ -30,12 +30,16 @@ public class ThongBao implements Serializable{
 	private Date NGAYDANG;
 	
 	@ManyToOne
-	@JoinColumn(name = "NGUOIDANG")
+	@JoinColumn(name = "NGUOIDANG", insertable=false, updatable=false)
 	private NguoiQuanLy nql;
 	
 	@ManyToOne
-	@JoinColumn(name = "MAKHOAHOC")
+	@JoinColumn(name = "MAKHOAHOC", insertable=false, updatable=false)
 	private KhoaHoc khoahoc;
+	
+	private String makhoahoc;
+	
+	private String nguoidang;
 
 	public int getID() {
 		return ID;
@@ -68,21 +72,37 @@ public class ThongBao implements Serializable{
 	public void setNGAYDANG(Date nGAYDANG) {
 		NGAYDANG = nGAYDANG;
 	}
-
-	public String getNql() {
+	
+	public String getNguoidang() {
+		return nguoidang;
+	}
+	
+	public void setNguoidang(String ma) {
+		this.nguoidang = ma;
+	}
+	
+	public String getTennguoidang() {
 		return nql.getTEN();
 	}
 
-	public void setNql(NguoiQuanLy nql) {
-		this.nql = nql;
+//	public void setNql(NguoiQuanLy nql) {
+//		this.nql = nql;
+//	}
+	
+	public String getMakhoahoc() {
+		return makhoahoc;
 	}
-
-	public String getKhoahoc() {
+	
+	public void setMakhoahoc(String ma) {
+		this.makhoahoc = ma;
+	}
+	
+	public String getTenkhoahoc() {
 		return khoahoc.getTENKHOAHOC();
 	}
-
-	public void setKhoahoc(KhoaHoc khoahoc) {
-		this.khoahoc = khoahoc;
-	}
+	
+//	public void setKhoahoc(KhoaHoc khoahoc) {
+//		this.khoahoc = khoahoc;
+//	}
 	
 }
